@@ -18,7 +18,7 @@ const campgroundRoutes = require('./routes/campgrounds');
 const commentRoutes     = require('./routes/comments');
 const indexRoutes       = require('./routes/index');
 
-mongoose.connect('mongodb+srv://anastasia:'+ process.env.DB_PASS + '@cluster0-6kfek.mongodb.net/test?retryWrites=true&w=majority', { 
+mongoose.connect('mongodb+srv://anastasia:sTeeleCourse@cluster0-6kfek.mongodb.net/test?retryWrites=true&w=majority', { 
 useUnifiedTopology: true,  
 useNewUrlParser: true,
 useCreateIndex: true
@@ -61,7 +61,9 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
   console.log('Camp app is runnning');
 })
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log('Camp app is runnning');
+// })
