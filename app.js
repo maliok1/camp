@@ -11,7 +11,7 @@ const Campground = require ('./models/campground');
 const Comment = require ('./models/comment');
 const User = require('./models/user');
 
-const seedDB = require('./seeds');
+// const seedDB = require('./seeds');
 
 //requiring routes
 const campgroundRoutes = require('./routes/campgrounds');
@@ -33,6 +33,7 @@ app.set('view engine' , 'ejs');
 app.use(express.static(__dirname + '/public'))
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require('moment');
 // seedDB();
 
 
@@ -62,9 +63,9 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-// app.listen(3000, function(){
-//   console.log('Camp app is runnning');
-// })
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
   console.log('Camp app is runnning');
 })
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log('Camp app is runnning');
+// })
