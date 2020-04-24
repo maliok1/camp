@@ -33,10 +33,9 @@ app.set('view engine' , 'ejs');
 app.use(express.static(__dirname + '/public'))
 app.use(methodOverride("_method"));
 app.use(flash());
-app.locals.moment = require('moment');
 // seedDB();
 
-
+app.locals.moment = require('moment');
 //PASSPORT CONFIGURATION
 app.use(require('express-session')({
 	secret: "That's a secret",
@@ -63,9 +62,9 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-// app.listen(3000, function(){
-//   console.log('Camp app is runnning');
-// })
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
   console.log('Camp app is runnning');
 })
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log('Camp app is runnning');
+// })
